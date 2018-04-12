@@ -1,11 +1,11 @@
-package by.epam.preTraining.shevyakova.task8.dao.impl;
+package by.epam.training.shevyakova.task0.dao.impl;
 
-import by.epam.preTraining.shevyakova.task8.dao.ApplianceDAO;
-import by.epam.preTraining.shevyakova.task8.dao.creator.ApplianceCreator;
-import by.epam.preTraining.shevyakova.task8.dao.creator.CreateCommand;
-import by.epam.preTraining.shevyakova.task8.entity.Appliance;
-import by.epam.preTraining.shevyakova.task8.entity.Laptop;
-import by.epam.preTraining.shevyakova.task8.entity.criteria.Criteria;
+import by.epam.training.shevyakova.task0.dao.ApplianceDAO;
+import by.epam.training.shevyakova.task0.dao.creator.ApplianceCreator;
+import by.epam.training.shevyakova.task0.dao.creator.CreateCommand;
+import by.epam.training.shevyakova.task0.entity.Appliance;
+import by.epam.training.shevyakova.task0.entity.criteria.Criteria;
+import by.epam.training.shevyakova.task0.exception.DAOException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,14 +13,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class ApplianceDAOImpl<E> implements ApplianceDAO  {
+public class ApplianceDAOImpl implements ApplianceDAO  {
     private static final String APPLIANCES_DB_PATH = "D:\\Epam-JWD\\Task0\\src\\by\\epam\\preTraining\\shevyakova\\task8\\resourse\\appliances_db.txt";
     private ApplianceCreator applianceCreator = new ApplianceCreator();
 
-
     @Override
-    public List<Appliance> find(Criteria criteria) {
+    public List<Appliance> find(Criteria criteria) throws DAOException {
         List<Appliance> appliances = new ArrayList<>();
         try(BufferedReader reader = new BufferedReader(new FileReader(APPLIANCES_DB_PATH))) {
             String applianceLine;
@@ -29,19 +29,18 @@ public class ApplianceDAOImpl<E> implements ApplianceDAO  {
                     continue;
                 }
                 if (isAppropriateLine(applianceLine, criteria)) {
-                    HashMap<String,String> appliancePropertyMap;
+                    Map<String,String> appliancePropertyMap;
                     appliancePropertyMap = createAppliancePropertyMap(applianceLine);
                     if (isApplianceSuited(appliancePropertyMap, criteria)) {
 
                         String applianceType = criteria.getParamsClassName();
                         Appliance appliance = createAppliance(applianceType, appliancePropertyMap);
                         appliances.add(appliance);
-
                     }
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new DAOException("File not found.", e);
         }
         return appliances;
     }
@@ -51,8 +50,8 @@ public class ApplianceDAOImpl<E> implements ApplianceDAO  {
         return line.equals(criteria.getParamsClassName());
     }
 
-    private HashMap<String, String> createAppliancePropertyMap(String applianceLine) {
-        HashMap<String, String> appliancePropertyMap = new HashMap<>();
+    private Map<String, String> createAppliancePropertyMap(String applianceLine) {
+        Map<String, String> appliancePropertyMap = new HashMap<>();
         String[] applianceProperties = applianceLine.split("[:;\\s,=]+");
         for (int i = 1; i < applianceProperties.length; i += 2) {
             appliancePropertyMap.put(applianceProperties[i], applianceProperties[i + 1]);
@@ -60,7 +59,7 @@ public class ApplianceDAOImpl<E> implements ApplianceDAO  {
         return appliancePropertyMap;
      }
 
-     private boolean isApplianceSuited(HashMap<String, String> appliancePropertyMap, Criteria criteria) {
+     private boolean isApplianceSuited(Map<String, String> appliancePropertyMap, Criteria criteria) {
         boolean suited = true;
         List<String> criteriaList = criteria.getListCriteria();
         for (String criterion : criteriaList) {
@@ -73,7 +72,7 @@ public class ApplianceDAOImpl<E> implements ApplianceDAO  {
         return suited;
      }
 
-     private Appliance createAppliance(String applianceType, HashMap<String, String > appliancePropertyMap) {
+     private Appliance createAppliance(String applianceType, Map<String, String > appliancePropertyMap) {
          CreateCommand command = applianceCreator.getCommand(applianceType);
          return command.create(appliancePropertyMap);
      }

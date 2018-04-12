@@ -1,9 +1,10 @@
-package by.epam.preTraining.shevyakova.task8.dao.creator;
+package by.epam.training.shevyakova.task0.dao.creator;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ApplianceCreator {
+    /**Package level access*/
     Map<String, CreateCommand> map = new HashMap<>();
 
     public ApplianceCreator() {

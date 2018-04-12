@@ -1,6 +1,6 @@
-package by.epam.preTraining.shevyakova.task8.entity;
+package by.epam.training.shevyakova.task0.entity;
 
-public class Laptop extends Appliance {
+public class Laptop implements Appliance {
     private int batteryCapacity;
     private String os;
     private int memoryRom;
@@ -8,48 +8,27 @@ public class Laptop extends Appliance {
     private double cpu;
     private int displayInchs;
 
-    public int getBatteryCapacity() {
-        return batteryCapacity;
+    public Laptop() {
     }
 
     public void setBatteryCapacity(int batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
     }
 
-    public String getOs() {
-        return os;
-    }
-
     public void setOs(String os) {
         this.os = os;
-    }
-
-    public int getMemoryRom() {
-        return memoryRom;
     }
 
     public void setMemoryRom(int memoryRom) {
         this.memoryRom = memoryRom;
     }
 
-    public int getSystemMemory() {
-        return systemMemory;
-    }
-
     public void setSystemMemory(int systemMemory) {
         this.systemMemory = systemMemory;
     }
 
-    public double getCpu() {
-        return cpu;
-    }
-
     public void setCpu(double cpu) {
         this.cpu = cpu;
-    }
-
-    public int getDisplayInchs() {
-        return displayInchs;
     }
 
     public void setDisplayInchs(int displayInchs) {

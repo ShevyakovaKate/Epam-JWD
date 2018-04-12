@@ -1,4 +1,4 @@
-package by.epam.preTraining.shevyakova.task8.entity.criteria;
+package by.epam.training.shevyakova.task0.entity.criteria;
 
 public final class SearchCriteria {
     private SearchCriteria(){}

@@ -1,14 +1,14 @@
-package by.epam.preTraining.shevyakova.task8.dao.creator;
+package by.epam.training.shevyakova.task0.dao.creator;
 
-import by.epam.preTraining.shevyakova.task8.entity.Appliance;
-import by.epam.preTraining.shevyakova.task8.entity.Oven;
-import by.epam.preTraining.shevyakova.task8.entity.criteria.SearchCriteria;
+import by.epam.training.shevyakova.task0.entity.Appliance;
+import by.epam.training.shevyakova.task0.entity.Oven;
+import by.epam.training.shevyakova.task0.entity.criteria.SearchCriteria;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class OvenCreator implements CreateCommand {
     @Override
-    public Appliance create(HashMap<String, String> propertyMap) {
+    public Appliance create(Map<String, String> propertyMap) {
         Oven oven = new Oven();
 
         int powerConsumptionValue = Integer.valueOf(propertyMap.get(SearchCriteria.Oven.POWER_CONSUMPTION.toString()));

@@ -1,14 +1,14 @@
-package by.epam.preTraining.shevyakova.task8.dao.creator;
+package by.epam.training.shevyakova.task0.dao.creator;
 
-import by.epam.preTraining.shevyakova.task8.entity.Appliance;
-import by.epam.preTraining.shevyakova.task8.entity.Refrigerator;
-import by.epam.preTraining.shevyakova.task8.entity.criteria.SearchCriteria;
+import by.epam.training.shevyakova.task0.entity.Appliance;
+import by.epam.training.shevyakova.task0.entity.Refrigerator;
+import by.epam.training.shevyakova.task0.entity.criteria.SearchCriteria;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class RefrigeratorCreator implements CreateCommand {
     @Override
-    public Appliance create(HashMap<String, String> propertyMap) {
+    public Appliance create(Map<String, String> propertyMap) {
         Refrigerator refrigerator = new Refrigerator();
 
         int powerConsumptionValue = Integer.valueOf(propertyMap.get(SearchCriteria.Refrigerator.POWER_CONSUMPTION.toString()));
@@ -21,7 +21,7 @@ public class RefrigeratorCreator implements CreateCommand {
         refrigerator.setPowerConsumption(powerConsumptionValue);
         refrigerator.setWeight(weightValue);
         refrigerator.setFreezerCapacity(freezerCapacityValue);
-        refrigerator.setOverallCapasity(overallCapacityValue);
+        refrigerator.setOverallCapacity(overallCapacityValue);
         refrigerator.setHeight(heightValue);
         refrigerator.setWidth(widthValue);
 
