@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ApplianceDAOImpl implements ApplianceDAO  {
-    private static final String APPLIANCES_DB_PATH = "D:\\Epam-JWD\\Task0\\src\\by\\epam\\preTraining\\shevyakova\\task8\\resourse\\appliances_db.txt";
+    private static final String APPLIANCES_DB_PATH = "D:\\Epam-JWD\\Task0\\src\\by\\epam\\training\\shevyakova\\task0\\resourse\\appliances_db.txt";
     private ApplianceCreator applianceCreator = new ApplianceCreator();
 
     @Override

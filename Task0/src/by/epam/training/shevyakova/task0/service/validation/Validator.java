@@ -5,7 +5,7 @@ import by.epam.training.shevyakova.task0.entity.criteria.Criteria;
 import java.util.List;
 
 public class Validator {
-    private static final String stringCriteriaType = "OS";
+    private static final String stringCriteriaType = "OS, FILTER_TYPE, BAG_TYPE, WAND_TYPE, COLOR, FREQUENCY_RANGE";
 
     public boolean criteriaValidator(Criteria criteria) {
 

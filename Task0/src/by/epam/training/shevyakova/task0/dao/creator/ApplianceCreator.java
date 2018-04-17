@@ -11,6 +11,9 @@ public class ApplianceCreator {
         map.put("Oven", new OvenCreator());
         map.put("Laptop", new LaptopCreator());
         map.put("Refrigerator", new RefrigeratorCreator());
+        map.put("VacuumCleaner", new VacuumCleanerCreator());
+        map.put("TabletPC", new TabletPCCreator());
+        map.put("Speakers", new SpeakersCreator());
     }
 
     public CreateCommand getCommand(String commandType) {
