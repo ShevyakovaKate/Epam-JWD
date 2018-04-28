@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class ApplianceDAOImpl implements ApplianceDAO{
 
-	private static final String APPLIANCES_DB_PATH = "D:\\Epam-JWD\\jwd-task01-template_v1\\src\\main\\resources\\appliances_db.txt";
+	private static final String APPLIANCES_DB_PATH = "src\\main\\resources\\appliances_db.txt";
 	private ApplianceCreator applianceCreator = new ApplianceCreator();
 
 	@Override
@@ -79,6 +79,3 @@ public class ApplianceDAOImpl implements ApplianceDAO{
 	}
 
 }
-
-
-//you may add your own new classes

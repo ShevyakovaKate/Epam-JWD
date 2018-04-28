@@ -8,6 +8,8 @@ public class VacuumCleaner implements Appliance {
     private int motorSpeedRegularation;
     private int cleaningWidth;
 
+    public VacuumCleaner() {}
+
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
     }

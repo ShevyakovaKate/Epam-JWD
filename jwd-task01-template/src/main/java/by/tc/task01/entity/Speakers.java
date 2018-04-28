@@ -7,6 +7,8 @@ public class Speakers implements Appliance {
     private String frequencyRange;
     private int cordLength;
 
+    public Speakers() {}
+
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
     }
