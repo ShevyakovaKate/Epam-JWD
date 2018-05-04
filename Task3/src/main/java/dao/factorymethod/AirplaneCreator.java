@@ -1,7 +1,7 @@
 package dao.factorymethod;
 
 import entity.Airplane;
-import util.AirplaneParameters;
+import entity.airplaneproperty.AirplaneParameters;
 
 import java.util.Map;
 

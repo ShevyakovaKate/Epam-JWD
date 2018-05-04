@@ -2,11 +2,11 @@ package dao.factorymethod;
 
 import entity.Airplane;
 import entity.PassengerAirplane;
-import util.AirplaneParameters;
+import entity.airplaneproperty.AirplaneParameters;
 
 import java.util.Map;
 
-import static util.AirplaneParameters.*;
+import static entity.airplaneproperty.AirplaneParameters.*;
 
 public class PassengerAirplaneCreator extends AirplaneCreator{
     public Airplane createAirplane(Map<AirplaneParameters, String> parameters) {

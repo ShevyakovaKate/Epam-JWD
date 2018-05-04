@@ -1,7 +1,7 @@
 package service;
 
 import entity.Airplane;
-import entity.airport.Airport;
+import entity.Airport;
 
 import java.util.List;
 

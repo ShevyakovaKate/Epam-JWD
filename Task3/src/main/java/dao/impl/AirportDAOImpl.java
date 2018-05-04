@@ -1,12 +1,14 @@
 package dao.impl;
 
+import org.apache.log4j.Logger;
+
 import dao.AirportDAO;
 import dao.factorymethod.AirplaneCreator;
 import dao.factorymethod.CargoAirplaneCreator;
 import dao.factorymethod.PassengerAirplaneCreator;
 import entity.Airplane;
-import entity.airport.Airport;
-import util.AirplaneParameters;
+import entity.Airport;
+import entity.airplaneproperty.AirplaneParameters;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,16 +16,16 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static util.AirplaneType.*;
-import static util.AirplaneParameters.*;
+import static entity.airplaneproperty.AirplaneType.*;
+import static entity.airplaneproperty.AirplaneParameters.*;
 
 public class AirportDAOImpl implements AirportDAO {
-    private static final String AIRPLANES_DB_PATH = "D:\\Epam-JWD\\Task3\\src\\main\\resources\\airplanes_db";
+    private static Logger logger = Logger.getLogger(AirportDAOImpl.class);
+    private static final String AIRPLANES_DB_PATH = "src\\main\\resources\\airplanes_db";
     private static final int NAME_COLUMN_NUMBER = 1;
     private static final int RANGEOFFLIGHT_COLUMN_NUMBER = 2;
     private static final int FUELCONSUMPTION_COLUMN_NUMBER = 3;
     private static final int CAPACITY_COLUMN_NUMBER = 4;
-
 
     public Airport initAirport() {
         Airport airport = new Airport();
@@ -44,12 +46,11 @@ public class AirportDAOImpl implements AirportDAO {
                     airplane = passengerAirplaneCreator.createAirplane(parameters);
                 }
                 airport.addAirplane(airplane);
+                logger.info("initialization was without exception");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException | NullPointerException e) {
+            logger.error(e);
         }
-
-
         return airport;
     }
 
@@ -67,20 +68,3 @@ public class AirportDAOImpl implements AirportDAO {
         return airplanesParametersMap;
     }
 }
-
-
-
-//        CargoAirplane cargoAirplane = new CargoAirplane();
-//        cargoAirplane.setCarryingCapacity(100);
-//        cargoAirplane.setFuelConsumption(832);
-//        cargoAirplane.setRangeOfFlight(8327);
-//        cargoAirplane.setName("LKJH");
-//        airport.addAirplane(cargoAirplane);
-//
-//
-//        PassengerAirplane passengerAirplane = new PassengerAirplane();
-//        passengerAirplane.setSeatingCapacity(988);
-//        passengerAirplane.setFuelConsumption(454);
-//        passengerAirplane.setRangeOfFlight(343);
-//        passengerAirplane.setName("UYHFYU");
-//        airport.addAirplane(passengerAirplane);

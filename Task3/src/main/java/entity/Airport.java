@@ -1,6 +1,4 @@
-package entity.airport;
-
-import entity.Airplane;
+package entity;
 
 import java.util.ArrayList;
 import java.util.List;

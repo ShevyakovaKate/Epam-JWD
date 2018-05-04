@@ -2,9 +2,9 @@ package dao.factorymethod;
 
 import entity.Airplane;
 import entity.CargoAirplane;
-import util.AirplaneParameters;
+import entity.airplaneproperty.AirplaneParameters;
 
-import static util.AirplaneParameters.*;
+import static entity.airplaneproperty.AirplaneParameters.*;
 
 import java.util.Map;
 

@@ -13,19 +13,24 @@ public class Main {
         AirportService service = factory.getAirportService();
         ResultPrinter printer = new ResultPrinter();
 
+        //////////////////////////////////////////////////////////////////////
+
         int totalCarryingCapacity = service.calculateTotalCarryingCapacity();
         printer.printResult(totalCarryingCapacity);
+
+        /////////////////////////////////////////////////////////////////////
 
         int totalSeatingCapacity = service.calculateTotalSeatingCapacity();
         printer.printResult(totalSeatingCapacity);
 
+        /////////////////////////////////////////////////////////////////////
+
         List<Airplane> suitableAirplanes = service.searchForGivenFuelConsumption(500, 1000);
         printer.printResult(suitableAirplanes);
 
+        /////////////////////////////////////////////////////////////////////
+
         service.sort();
         printer.printResult(service.getAirport());
-
     }
-
-
 }

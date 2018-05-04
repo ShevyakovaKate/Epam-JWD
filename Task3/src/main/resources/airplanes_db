@@ -1,2 +1,6 @@
-Cargoairplane : lsjdfn, 4500, 750, 150
-Passengeraiplane : sdfdsd, 3800, 500, 500
+Cargoairplane : Airbus_Beluga, 4500, 750, 150
+Passengeraiplane : А320, 3800, 500, 500
+Passengeraiplane : Ty-154, 5450, 860, 300
+Cargoairplane : Basler_BT-67, 2400, 800, 250
+Passengeraiplane : Dash-8, 6700, 1200, 700
+Passengeraiplane : CRJ, 5450, 860, 300

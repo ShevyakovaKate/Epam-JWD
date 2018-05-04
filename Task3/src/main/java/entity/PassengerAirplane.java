@@ -3,6 +3,8 @@ package entity;
 public class PassengerAirplane extends Airplane {
     private int seatingCapacity;
 
+    public PassengerAirplane(){}
+
     public int getSeatingCapacity() {
         return seatingCapacity;
     }

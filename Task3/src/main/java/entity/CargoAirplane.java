@@ -1,7 +1,9 @@
 package entity;
 
 public class CargoAirplane extends Airplane {
-    int carryingCapacity;
+    private int carryingCapacity;
+
+    public CargoAirplane(){}
 
     public int getCarryingCapacity() {
         return carryingCapacity;

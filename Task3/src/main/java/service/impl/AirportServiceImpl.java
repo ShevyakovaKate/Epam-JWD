@@ -5,24 +5,22 @@ import dao.DAOFactory;
 import entity.Airplane;
 import entity.CargoAirplane;
 import entity.PassengerAirplane;
-import entity.airport.Airport;
+import entity.Airport;
 import service.AirportService;
 
-import static util.AirplaneType.*;
+import static entity.airplaneproperty.AirplaneType.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class AirportServiceImpl implements AirportService {
-    private Airport airport = null;
-
-
+    private Airport airport;
 
     public AirportServiceImpl(){
         DAOFactory factory = DAOFactory.getInstance();
-        AirportDAO airportDAODAO = factory.getAirportDAO();
-        airport= airportDAODAO.initAirport();
+        AirportDAO airportDAO = factory.getAirportDAO();
+        airport= airportDAO.initAirport();
     }
 
     @Override
@@ -78,17 +76,11 @@ public class AirportServiceImpl implements AirportService {
 
     private boolean isPassengerAirplane(Airplane airplane) {
         String airplaneType = airplane.getClass().getSimpleName();
-        if (airplaneType.equalsIgnoreCase(PASSENGERAIRPLANE.toString())) {
-            return true;
-        }
-        return false;
+        return airplaneType.equalsIgnoreCase(PASSENGERAIRPLANE.toString());
     }
 
     private boolean isCargoAirplane(Airplane airplane) {
         String airplaneType = airplane.getClass().getSimpleName();
-        if (airplaneType.equalsIgnoreCase(CARGOAIRPLANE.toString())) {
-            return true;
-        }
-        return false;
+        return airplaneType.equalsIgnoreCase(CARGOAIRPLANE.toString());
     }
 }

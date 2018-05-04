@@ -1,6 +1,6 @@
 package dao;
 
-import entity.airport.Airport;
+import entity.Airport;
 
 public interface AirportDAO {
     Airport initAirport();
