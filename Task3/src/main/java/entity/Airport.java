@@ -22,10 +22,6 @@ public class Airport {
         airplanes.add(airplane);
     }
 
-    public void addAirplane(int index, Airplane airplane) {
-        airplanes.add(index, airplane);
-    }
-
     @Override
     public String toString() {
         return "Airport{" +

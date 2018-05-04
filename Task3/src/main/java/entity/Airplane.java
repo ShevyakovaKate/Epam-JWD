@@ -8,10 +8,6 @@ public abstract class Airplane implements Comparator<Airplane> {
     int rangeOfFlight;
     int fuelConsumption;
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
