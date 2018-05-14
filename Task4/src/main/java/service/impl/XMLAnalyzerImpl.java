@@ -12,10 +12,10 @@ import static service.constants.TagConstants.*;
 import java.io.IOException;
 
 public class XMLAnalyzerImpl implements XMLAnalyzer {
+    DAOFactory daoFactory = DAOFactory.getInstance();
+    XMLFileReader xmlFileReader = daoFactory.getXmlFileReader();
 
     public Node nextNode() throws IOException {
-        DAOFactory daoFactory = DAOFactory.getInstance();
-        XMLFileReader xmlFileReader = daoFactory.getXmlFileReader();
         if (xmlFileReader.isXMLFileEmpty()) {
             return null;
         }
@@ -24,8 +24,12 @@ public class XMLAnalyzerImpl implements XMLAnalyzer {
         NodeType nodeType = determineType(lexeme);
         node.setContent(lexeme);
         node.setType(nodeType);
-        xmlFileReader.close();
         return node;
+    }
+
+    @Override
+    public void close() throws IOException {
+        xmlFileReader.close();
     }
 
     private NodeType determineType(String lexeme) {

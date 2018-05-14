@@ -12,10 +12,12 @@ public class Main {
         try {
             ServiceFactory serviceFactory = ServiceFactory.getInstance();
             XMLAnalyzer xmlAnalyzer = serviceFactory.getXmlAnalyzer();
+            InfoPrinter infoPrinter = new InfoPrinter();
             Node node;
             while ((node = xmlAnalyzer.nextNode()) != null) {
-                System.out.println(node);
+               infoPrinter.printInfo(node);
             }
+            xmlAnalyzer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

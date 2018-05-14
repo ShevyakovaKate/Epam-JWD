@@ -20,7 +20,7 @@ public class XMLFileReaderImpl implements XMLFileReader {
             StringBuilder lexeme = new StringBuilder();
             in.skip(readCharactersCounter);
             while((readInt = in.read()) != -1) {
-                String readSymbol = String.valueOf(readInt);
+                String readSymbol = String.valueOf((char) readInt);
                 readCharactersCounter++;
                 if(readSymbol.equals(CARRIAGE_RETURN_CHARACTER) || readSymbol.equals(LINE_FEED_CHARACTER)) {
                     continue;
@@ -55,7 +55,7 @@ public class XMLFileReaderImpl implements XMLFileReader {
     }
 
     @Override
-    public boolean isXMLFileEmpty() throws IOException {
+    public boolean isXMLFileEmpty() {
         try {
             initInputStream();
             in.skip(readCharactersCounter);
