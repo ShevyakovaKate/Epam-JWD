@@ -1,21 +1,20 @@
-package dao.impl;
+package by.tc.task4.dao.impl;
 
-import dao.XMLFileReader;
-import static dao.constants.NodeConstants.*;
+import by.tc.task4.dao.XMLFileReader;
+import static by.tc.task4.dao.constant.NodeElements.*;
 
 import java.io.*;
 
 public class XMLFileReaderImpl implements XMLFileReader {
     private long readCharactersCounter = 0;
-    private final String BREAKFAST_MENU_FILE_PATH = "src\\main\\resources\\breakfastMenu.xml";
+    private final String BREAKFAST_MENU_FILE_PATH = "src\\by.tc.task4.main\\resources\\breakfastMenu.xml";
     private BufferedReader in;
 
     public XMLFileReaderImpl() {}
 
     @Override
     public String read() {
-        try {
-            initInputStream();
+        try ( BufferedReader in = new BufferedReader(new FileReader(new File(BREAKFAST_MENU_FILE_PATH)))) {
             int readInt;
             StringBuilder lexeme = new StringBuilder();
             in.skip(readCharactersCounter);

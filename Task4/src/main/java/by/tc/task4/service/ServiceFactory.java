@@ -1,6 +1,6 @@
-package service;
+package by.tc.task4.service;
 
-import service.impl.XMLAnalyzerImpl;
+import by.tc.task4.service.impl.XMLAnalyzerImpl;
 
 public final class ServiceFactory {
 

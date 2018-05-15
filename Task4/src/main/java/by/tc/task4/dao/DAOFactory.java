@@ -1,6 +1,6 @@
-package dao;
+package by.tc.task4.dao;
 
-import dao.impl.XMLFileReaderImpl;
+import by.tc.task4.dao.impl.XMLFileReaderImpl;
 
 public final class DAOFactory {
     private static final DAOFactory instance = new DAOFactory();

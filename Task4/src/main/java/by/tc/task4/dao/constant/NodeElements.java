@@ -1,8 +1,8 @@
-package dao.constants;
+package by.tc.task4.dao.constant;
 
 import java.util.regex.Pattern;
 
-public final class NodeConstants {
+public final class NodeElements {
     public final static String OPEN_BRACKET = "<";
     public final static String LAST_BRACKET = ">";
     public final static String LINE_FEED_CHARACTER = "\n";
@@ -11,5 +11,5 @@ public final class NodeConstants {
     public final static int INCLUDING_LAST = 1;
     public final static Pattern XML_DECLARATION = Pattern.compile("(<\\?.*\\?>)");
 
-    private NodeConstants(){}
+    private NodeElements(){}
 }

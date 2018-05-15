@@ -1,4 +1,4 @@
-package entity;
+package by.tc.task4.entity;
 
 import java.io.Serializable;
 

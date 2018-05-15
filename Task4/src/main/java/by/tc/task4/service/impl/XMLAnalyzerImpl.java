@@ -1,13 +1,12 @@
-package service.impl;
+package by.tc.task4.service.impl;
 
-import dao.DAOFactory;
-import dao.XMLFileReader;
-import dao.constants.NodeConstants;
-import entity.Node;
-import entity.NodeType;
-import service.XMLAnalyzer;
+import by.tc.task4.dao.DAOFactory;
+import by.tc.task4.dao.XMLFileReader;
+import by.tc.task4.entity.Node;
+import by.tc.task4.entity.NodeType;
+import by.tc.task4.service.XMLAnalyzer;
 
-import static service.constants.TagConstants.*;
+import static by.tc.task4.service.constant.TagConstants.*;
 
 import java.io.IOException;
 
@@ -28,7 +27,7 @@ public class XMLAnalyzerImpl implements XMLAnalyzer {
     }
 
     @Override
-    public void close() throws IOException {
+    public void close() throws Exception {
         xmlFileReader.close();
     }
 
@@ -40,8 +39,6 @@ public class XMLAnalyzerImpl implements XMLAnalyzer {
             nodeType = NodeType.CLOSE_TAG;
         } else if (isTagWithoutBody(lexeme)) {
             nodeType = NodeType.TAG_WITHOUT_BODY;
-        } else if (isTagContent(lexeme)) {
-            nodeType = NodeType.TAG_CONTENT;
         }
         return nodeType;
     }
@@ -56,9 +53,5 @@ public class XMLAnalyzerImpl implements XMLAnalyzer {
 
     private boolean isTagWithoutBody(String lexeme) {
         return TAG_WITHOUT_BODY.matcher(lexeme).find();
-    }
-
-    private boolean isTagContent(String lexeme) {
-        return Character.toString(lexeme.charAt(0)).equals(NodeConstants.OPEN_BRACKET);
     }
 }
